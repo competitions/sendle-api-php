@@ -4,8 +4,8 @@ require __DIR__ . '/../src/Api.php';
 use \Sendle\Client;
 $sendle = new Client();
 
-$sendleId = 'zway_sendle_com';
-$apiKey = 'C6yQP9Wv6SpYmqy7Sqnc76WN';
+$sendleId = '';
+$apiKey = '';
 $api_endpoint = 'sendle-sandbox';
 $tasks = 'quote';
 $postdata = [

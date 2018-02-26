@@ -1,6 +1,4 @@
 <?php
-
-
 namespace Sendle;
 
 class Client {
@@ -14,8 +12,6 @@ class Client {
         $endpointsarray = [
             'sendle-sandbox'        => 'https://'.$sendleId.':'.$apiKey.'@sandbox.sendle.com',
             'sendle-prod'        => 'https://api.sendle.com',
-           
-
         ];
         
         $pathsarray = [
@@ -29,8 +25,6 @@ class Client {
             'order' => 'POST',
             'quote' => 'GET'
         ];
-        
-        
         
         $url = $endpointsarray[$api_endpoint] . $pathsarray[$tasks];
         if ($pathsarray[$tasks] == '/api/quote') {

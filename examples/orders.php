@@ -2,8 +2,8 @@
 require __DIR__ . '/../src/Api.php';
 use \Sendle\Client;
 
-$sendleId = 'zway_sendle_com';
-$apiKey = 'C6yQP9Wv6SpYmqy7Sqnc76WN';
+$sendleId = '';
+$apiKey = '';
 
 $postdata = '{
   "pickup_date": "2018-05-24",
