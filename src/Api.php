@@ -1,7 +1,7 @@
 <?php
 namespace Sendle;
 class Client {
-    public static function HTTPRequest($method, $url, array $headers = [], $postdata = NULL, callable $extraconfig = NULL) {
+    public static function HTTPRequest($url, $postdata = NULL) {
         $ch = curl_init();
 
         if ($postdata !== NULL) {
