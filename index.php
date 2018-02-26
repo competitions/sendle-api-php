@@ -19,33 +19,15 @@ function log( message ) {
 $( "<div>" ).text( message ).prependTo( "#log" );
 $( "#log" ).scrollTop( 0 );
 }
+$(function() {
+
 $( "#city" ).autocomplete({
-source: function( request, response ) {
-$.ajax({
-url: "http://api.addressify.com.au/address/suburbAutoComplete",
-dataType: "jsonp",
-data: {
-term: request.term,
-api_key: "b03cb8bf-4b5c-482d-a11e-3c8884ea5b44"
-},
-success: function( data ) {
-response( data );
-}
+source: "getSuburb.php",
+minLength: 3
+
+})
 });
-},
-minLength: 3,
-select: function( event, ui ) {
-log( ui.item ?
-"Selected: " + ui.item.label :
-"Nothing selected, input was " + this.value);
-},
-open: function() {
-$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
-},
-close: function() {
-$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
-}
-});
+
 });
 </script>
 </head>
