@@ -40,7 +40,7 @@ $data = '{
     }
   }';
 //API Url
-$url = 'https://zway_sendle_com:C6yQP9Wv6SpYmqy7Sqnc76WN@sandbox.sendle.com/api/orders';
+$url = 'https://*:*@sandbox.sendle.com/api/orders';
 
 //Initiate cURL.
 $ch = curl_init($url);
