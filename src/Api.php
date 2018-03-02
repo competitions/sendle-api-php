@@ -3,23 +3,23 @@ namespace Sendle;
 
 class Client {
 
-    public function quote()
-    {
-    }
-
+    
     public static function HTTPRequest($api_endpoint, $tasks, $postdata,$sendleId,$apiKey) {
 
+        //List of available endpoints
         $endpointsarray = [
             'sendle-sandbox'        => 'https://'.$sendleId.':'.$apiKey.'@sandbox.sendle.com',
             'sendle-prod'        => 'https://api.sendle.com',
         ];
         
+        //API endpoint locations
         $pathsarray = [
             'ping' => '/api/ping',
             'order' => '/api/orders',
             'quote' => '/api/quote'
         ];
         
+        //List of available tasks/operations
         $tasksarray = [
             'ping' => 'GET',
             'order' => 'POST',
@@ -29,7 +29,6 @@ class Client {
         $url = $endpointsarray[$api_endpoint] . $pathsarray[$tasks];
         if ($pathsarray[$tasks] == '/api/quote') {
             $url = 'https://api.sendle.com/api/quote?pickup_suburb='.rawurlencode($postdata["pickup_suburb"]).'&pickup_postcode='.$postdata["pickup_postcode"].'&delivery_suburb='.rawurlencode($postdata["delivery_suburb"]).'&delivery_postcode='.$postdata["delivery_postcode"].'&kilogram_weight='.$postdata["kilogram_weight"].'&cubic_metre_volume='.$postdata["cubic_metre_volume"];
-            echo $url;
             $ch = curl_init($url);
         }
         else {
