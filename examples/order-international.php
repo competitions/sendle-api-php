@@ -2,8 +2,15 @@
 require __DIR__ . '/../src/Api.php';
 use \Sendle\Client;
 
-$sendleId = '';
+//Get your API Credentials from - https://sandbox.sendle.com/dashboard/api_settings
+
 $apiKey = '';
+$sendleId = '';
+
+//Either sendle-sandbox or sendle-prod
+$api_endpoint = 'sendle-sandbox';
+
+$tasks = 'order-domestic';
 
 $postdata = '{
   "pickup_date": "2018-05-24",
@@ -34,18 +41,19 @@ $postdata = '{
       "email": "clarkissuper@dailyplanet.xyz"
     },
     "address": {
-      "address_line1": "80 Wentworth Park Road",
-      "suburb": "Glebe",
-      "state_name": "NSW",
-      "postcode": "2037",
-      "country": "Australia"
+      "address_line1": "445 Mount Eden Road",
+      "suburb": "Auckland",
+      "postcode": "2025",
+      "country": "New Zealand"
     },
     "instructions": "Give directly to Clark"
+  },
+  "contents": {
+    "description": "T-shirt",
+    "value": "20.00",
+    "country_of_origin": "China"
   }
 }';
-
-$api_endpoint = 'sendle-sandbox';
-$tasks = 'order';
 
 $sendle = new Client();
 

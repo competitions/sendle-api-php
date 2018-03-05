@@ -15,20 +15,26 @@ class Client {
         //API endpoint locations
         $pathsarray = [
             'ping' => '/api/ping',
-            'order' => '/api/orders',
-            'quote' => '/api/quote'
+            'order-domestic' => '/api/orders',
+            'order-international' => '/api/orders',
+            'quote-domestic' => '/api/quote',
+            'quote-international' => '/api/quote'
         ];
         
         //List of available tasks/operations
         $tasksarray = [
             'ping' => 'GET',
-            'order' => 'POST',
-            'quote' => 'GET'
+            'order-domestic' => 'POST',
+            'quote-domestic' => 'GET'
         ];
         
         $url = $endpointsarray[$api_endpoint] . $pathsarray[$tasks];
-        if ($pathsarray[$tasks] == '/api/quote') {
+        if ($tasks == 'quote-domestic') {
             $url = 'https://api.sendle.com/api/quote?pickup_suburb='.rawurlencode($postdata["pickup_suburb"]).'&pickup_postcode='.$postdata["pickup_postcode"].'&delivery_suburb='.rawurlencode($postdata["delivery_suburb"]).'&delivery_postcode='.$postdata["delivery_postcode"].'&kilogram_weight='.$postdata["kilogram_weight"].'&cubic_metre_volume='.$postdata["cubic_metre_volume"];
+            $ch = curl_init($url);
+        }
+        elseif ($tasks == 'quote-international') {
+            $url = 'https://api.sendle.com/api/quote?pickup_suburb='.rawurlencode($postdata["pickup_suburb"]).'&pickup_postcode='.$postdata["pickup_postcode"].'&delivery_country='.rawurlencode($postdata["delivery_country"]).'&kilogram_weight='.$postdata["kilogram_weight"];
             $ch = curl_init($url);
         }
         else {
