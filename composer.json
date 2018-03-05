@@ -4,5 +4,8 @@
     "type": "library",
     "autoload": {
         "psr-4": {"Sendle\\": "src/"}
+    },
+    "require": {
+        "php": ">=5.5.0"
     }
 }
